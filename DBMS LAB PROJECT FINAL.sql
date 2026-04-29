@@ -74,6 +74,17 @@ CREATE TABLE Appointment (
 ---------------------------------------------------
 -- SAMPLE DATA
 ---------------------------------------------------
+-- Admin Data --
+INSERT IGNORE INTO Admin (username, password)
+VALUES ('admin_fahim', 'password123'),
+       ('hospital_staff', 'secure_pass');
+  -- Madical Record --     
+INSERT IGNORE INTO Medical_Record (patient_id, diagnosis, treatment)
+VALUES (
+    (SELECT patient_id FROM Patient WHERE phone = '01992777079'), 
+    'Hypertension and Mild Chest Pain', 
+    'Prescribed Amlodipine 5mg and 1 week bed rest.'
+);
 
 -- Specialization
 INSERT IGNORE INTO Specialization (spec_name)
